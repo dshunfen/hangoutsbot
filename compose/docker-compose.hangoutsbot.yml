@@ -1,0 +1,27 @@
+version: '2.2'
+
+services:
+  hangoutsbot:
+    image: hangoutsbot/hangoutsbot
+    container_name: hangoutsbot
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: 20M
+        max-file: "3"
+#    environment:
+#      - MY_ENV_VARIABLE
+#    ports:
+#      - "80:80"
+#    links:
+#    - hangoutsbot
+    volumes:
+    # Data directory
+    - /home/david/dev/python/infobot/hob-data-dir:/home/hangoutsbot/data:z
+    - /home/david/dev/python/infobot/hangoutsbot/hangupsbot:/home/hangoutsbot/hangupsbot:z
+    - /home/david/dev/python/infobot/hangups/hangups:/usr/local/lib/python3.7/site-packages/hangups:z
+    # entrypoint:
+    #   - /bin/sh
+    # stdin_open: true
+    # tty: true
