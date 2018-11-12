@@ -237,6 +237,11 @@ class FakeConversation(object):
             type = 1027,
             value = self.bot._handlers.register_context(context) ))
 
+        """ Assuming working with phones """
+        default_medium = hangups.hangouts_pb2.DeliveryMedium(
+            medium_type=hangups.hangouts_pb2.DELIVERY_MEDIUM_GOOGLE_VOICE
+        )
+
         """send the message"""
 
         with (yield from asyncio.Lock()):
@@ -249,4 +254,5 @@ class FakeConversation(object):
                     event_request_header = hangups.hangouts_pb2.EventRequestHeader(
                         conversation_id=hangups.hangouts_pb2.ConversationId( id=self.id_ ),
                         client_generated_id=self._client.get_client_generated_id(),
-                        expected_otr = otr_status )))
+                        expected_otr = otr_status,
+                        delivery_medium = default_medium)))
