@@ -125,7 +125,7 @@ def reply_hangouts(fn):
             return
         conv = yield from bot.get_1to1(event.user.id_.chat_id)
         # Replace uses of /bot with the bot's alias.
-        botalias = (bot.memory.get("bot.command_aliases") or ["/bot"])[0]
+        botalias = (bot.config.get("bot.command_aliases") or ["/bot"])[0]
         yield from bot.coro_send_message(conv, re.sub(r"(^|\s|>)/bot\b", r"\1{}".format(botalias), resp))
     return wrap
 

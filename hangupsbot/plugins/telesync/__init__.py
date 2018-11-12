@@ -127,7 +127,7 @@ class TelegramBot(telepot.aio.Bot):
 
     @staticmethod
     def is_command(msg):
-        ho_bot_aliases = tuple(tg_bot.ho_bot.memory.get("bot.command_aliases") or [])
+        ho_bot_aliases = tuple(tg_bot.ho_bot.config.get("bot.command_aliases") or [])
         if 'text' in msg:
             if( msg['text'].startswith('/')
                     and not msg['text'].startswith(ho_bot_aliases) ):
