@@ -21,7 +21,7 @@ def _initialise(bot):
     apikey = bot.get_config_option("wolframalpha-apikey")
     if apikey:
         _internal["client"] = wolframalpha.Client(apikey)
-        plugins.register_user_command(["ask"])
+        plugins.register_user_command(["wolfram"])
     else:
         logger.error('WOLFRAMALPHA: config["wolframalpha-apikey"] required')
 
