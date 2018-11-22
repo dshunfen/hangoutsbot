@@ -48,7 +48,14 @@ def define(bot, event, *args):
         return
 
     keyword = ' '.join(args)
-    val = _internal["client"].get_info_about_word(keyword).json()['results'][0]
+    info = _internal["client"].get_info_about_word(keyword)
+
+    if info.status_code == 404
+        yield from bot.coro_send_message(event.conv,
+                                         _("The definition for %s was not found" % keyword))
+        return
+
+    val = info.json()['results'][0]
 
     word = val['word']
     lexical_category = val['lexicalEntries'][0]['lexicalCategory']
