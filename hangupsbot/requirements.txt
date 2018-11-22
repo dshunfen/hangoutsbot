@@ -24,6 +24,7 @@ TwitterAPI                                      # plugins: twitter
 google-api-python-client                        # plugins: spotify
 spotipy                                         # plugins: spotify
 soundcloud                                      # plugins: spotify
+oxforddictionaries                              # plugins: dictionary
 
 # DEBUGGING #
 pydevd

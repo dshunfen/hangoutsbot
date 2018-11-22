@@ -26,7 +26,7 @@ def _initialise(bot):
         logger.error('WOLFRAMALPHA: config["wolframalpha-apikey"] required')
 
 
-def ask(bot, event, *args):
+def wolfram(bot, event, *args):
     """request data from wolfram alpha"""
 
     if not len(args):
