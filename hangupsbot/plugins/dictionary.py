@@ -50,7 +50,7 @@ def define(bot, event, *args):
     keyword = ' '.join(args)
     info = _internal["client"].get_info_about_word(keyword)
 
-    if info.status_code == 404
+    if info.status_code == 404:
         yield from bot.coro_send_message(event.conv,
                                          _("The definition for %s was not found" % keyword))
         return
